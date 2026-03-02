@@ -829,5 +829,31 @@ fun SettingsScreen(
         
         Spacer(modifier = Modifier.height(32.dp))
         Text("當前版本：v$versionName", color = Color(0xFFA0A0B0), fontSize = 12.sp)
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        var isCheckingUpdate by remember { mutableStateOf(false) }
+        Button(
+            onClick = {
+                UpdateHelper.checkForUpdate(
+                    context = context,
+                    currentVersionName = versionName,
+                    onChecking = { isCheckingUpdate = true },
+                    onNoUpdate = { 
+                        isCheckingUpdate = false
+                        Toast.makeText(context, "目前已經是最新版本囉！", Toast.LENGTH_SHORT).show()
+                    },
+                    onUpdateFound = {
+                        isCheckingUpdate = false
+                    }
+                )
+            },
+            modifier = Modifier
+                .height(40.dp)
+                .clip(RoundedCornerShape(12.dp)),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981)),
+            enabled = !isCheckingUpdate
+        ) {
+            Text(if (isCheckingUpdate) "正在檢查..." else "檢查最新版本", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        }
     }
 }

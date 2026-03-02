@@ -5,3 +5,4 @@ drawable ic_request_quote
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+xml provider_paths
