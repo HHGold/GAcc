@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\drawable_ic_request_quote.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\drawable\\ic_request_quote.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\drawable_ic_edit_square.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\drawable\\ic_edit_square.xml"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "com.gacc.app-merged_res-4:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.gacc.app-main-6:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-merged_res-4:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.14.3\\com.gacc.app-main-6:\\mipmap-mdpi\\ic_launcher_round.png"
+    }
+]

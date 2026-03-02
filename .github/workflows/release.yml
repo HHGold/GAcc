@@ -1,0 +1,36 @@
+name: Android Release Build
+
+on:
+  push:
+    tags:
+      - 'v*' # 意思是當您上傳像 v1.0.0 這樣的標籤時，就會觸發自動打包
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 編譯包含除錯資訊的 APK (若要發佈正式簽名的 APK，後續我們再來設定 Github Secrets)
+      - name: Build APK
+        run: ./gradlew assembleDebug
+
+      - name: Create Release and Upload APK
+        uses: softprops/action-gh-release@v2
+        with:
+          # 會將打好的 APK 檔上傳到 Github Releases
+          files: app/build/outputs/apk/debug/app-debug.apk
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
