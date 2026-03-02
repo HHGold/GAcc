@@ -29,10 +29,13 @@ jobs:
       - name: Build APK
         run: ./gradlew assembleDebug
 
+      - name: Rename APK
+        run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/GAcc.apk
+
       - name: Create Release and Upload APK
         uses: softprops/action-gh-release@v2
         with:
           # 會將打好的 APK 檔上傳到 Github Releases
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: app/build/outputs/apk/debug/GAcc.apk
           name: Release ${{ github.ref_name }}
           generate_release_notes: true
