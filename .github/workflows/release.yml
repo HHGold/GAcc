@@ -15,10 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: gradle
 
@@ -26,7 +26,9 @@ jobs:
         run: chmod +x gradlew
 
       - name: Decode Keystore
-        run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > app/release.p12
+        run: |
+          echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" > keystore.base64
+          base64 --decode keystore.base64 > app/release.p12
 
       # 編譯正式版 APK (Release Build)
       - name: Build APK
