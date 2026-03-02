@@ -518,7 +518,7 @@ fun SettleScreen(
                 Spacer(modifier = Modifier.height(12.dp))
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text("${selectedPerson}的總支出", color = Color(0xFFA0A0B0), fontSize = 13.sp)
-                    Text("NT$ $total", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Text("NT$ ${String.format("%,d", total)}", fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 }
                 
                 if (selectedPerson != "自己") {
@@ -526,7 +526,7 @@ fun SettleScreen(
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                         Text("剩餘借款", color = Color(0xFFA0A0B0), fontSize = 13.sp)
                         val balanceColor = if (borrowBalance >= 0) Color(0xFF10B981) else Color(0xFFEF4444)
-                        Text("NT$ $borrowBalance", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = balanceColor)
+                        Text("NT$ ${String.format("%,d", borrowBalance)}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = balanceColor)
                     }
 
                     Spacer(modifier = Modifier.height(8.dp))
@@ -539,7 +539,7 @@ fun SettleScreen(
                         }
                         val settleColor = if (settleBalance >= 0) Color(0xFF10B981) else Color(0xFFEF4444)
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                            Text("NT$ $settleBalance", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = settleColor)
+                            Text("NT$ ${String.format("%,d", settleBalance)}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = settleColor)
                             Text("已結清", color = Color(0xFF7C3AED), fontSize = 12.sp, modifier = Modifier.border(1.dp, Color(0xFF7C3AED), RoundedCornerShape(4.dp)).clickable{ showSettleDialog = true }.padding(horizontal=6.dp, vertical=2.dp))
                         }
                     }
@@ -593,7 +593,7 @@ fun SettleScreen(
                             expense.category == "借還款-還" -> "+ NT$"
                             else -> "NT$"
                         }
-                        Text("$prefix ${expense.amount}", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = amountColor)
+                        Text("$prefix ${String.format("%,d", expense.amount)}", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = amountColor)
                         Text("刪除", color = Color(0xFFEF4444), fontSize = 10.sp, modifier = Modifier.clickable { onDelete(expense.id) }.padding(6.dp))
                     }
                 }
