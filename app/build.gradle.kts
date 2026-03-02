@@ -13,8 +13,9 @@ android {
         applicationId = "com.gacc.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.0.5"
+        // 從環境變數讀取版本資訊 (用於 GitHub Actions)，否則使用預設值
+        versionCode = System.getenv("APP_VERSION_CODE")?.toInt() ?: 5
+        versionName = System.getenv("APP_VERSION_NAME") ?: "1.0.5"
     }
 
 
