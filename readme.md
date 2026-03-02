@@ -51,23 +51,38 @@
 - **本地儲存**：SharedPreferences + Gson (完全離線保護隱私)。
 - **外部資源**：採用高解析度自定義 Mipmap Icon 組，支援各類螢幕解析度。
 
-## 🚀 如何編譯與打包 (Build & Sign)
-本專案已設定完備的數位簽名流程。
+## 🚀 自動化建構與更新系統 (CI/CD)
+本專案已整合 GitHub Actions，支援「推送標籤即自動打包」。
 
-### 1. 編譯指令
-打開終端機並執行以下指令來產出簽名後的 APK：
+### 1. 密鑰設定 (GitHub Secrets)
+請在 GitHub 專案的 `Settings > Secrets` 補上：
+- `RELEASE_KEYSTORE_BASE64`：將 `release.p12` 轉為 Base64。
+- `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD`。
 
+### 2. 發布新版本
+1. 在 `app/build.gradle.kts` 更新 `versionCode` 與 `versionName`。
+2. 推送至 GitHub：
+   ```powershell
+   git add . ; git commit -m "Bump version to 1.0.x" ; git push
+   git tag v1.0.x
+   git push origin v1.0.x
+   ```
+3. 雲端會自動產出簽名後的 APK。
+
+### 3. 自動更新機制
+本 App 內建 `UpdateHelper`。啟動後會請求 GitHub API，若有新版會自動下載並引導安裝。
+
+## 🔑 安全性須知
+以下檔案受 `.gitignore` 保護，絕對禁止上傳至公開 GitHub 倉庫：
+- `app/release.p12`（數位簽章私鑰）
+- `local.properties`（包含 SDK 路徑與可能的身分密鑰）
+- `*.apk`（編譯產物）
+
+## 🚀 本地開發指令
 ```powershell
-# 移動到專案目錄
-cd c:\AI\GAcc
-
-# 清理並組建測試版 APK (Debug)
+# 建構測試版 APK
 .\gradlew assembleDebug
 ```
-
-### 2. 產出位置
-編譯完成後，最新安裝檔會自動產出於：
-- **`c:\AI\GAcc\GAcc.apk`** (根目錄便利版本)
 
 ---
 **Build with ❤️ for GAcc Users**
