@@ -25,17 +25,17 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # 編譯包含除錯資訊的 APK (若要發佈正式簽名的 APK，後續我們再來設定 Github Secrets)
+      # 編譯正式版 APK (Release Build)
       - name: Build APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleRelease
 
       - name: Rename APK
-        run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/GAcc.apk
+        run: mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/GAcc.apk
 
       - name: Create Release and Upload APK
         uses: softprops/action-gh-release@v2
         with:
           # 會將打好的 APK 檔上傳到 Github Releases
-          files: app/build/outputs/apk/debug/GAcc.apk
+          files: app/build/outputs/apk/release/GAcc.apk
           name: Release ${{ github.ref_name }}
           generate_release_notes: true
