@@ -13,8 +13,8 @@ android {
         applicationId = "com.gacc.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.0.4"
+        versionCode = 5
+        versionName = "1.0.5"
     }
 
 
@@ -27,9 +27,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.p12")
-            storePassword = localProperties.getProperty("RELEASE_STORE_PASSWORD")
-            keyAlias = localProperties.getProperty("RELEASE_KEY_ALIAS")
-            keyPassword = localProperties.getProperty("RELEASE_KEY_PASSWORD")
+            storePassword = System.getenv("RELEASE_STORE_PASSWORD") ?: localProperties.getProperty("RELEASE_STORE_PASSWORD")
+            keyAlias = System.getenv("RELEASE_KEY_ALIAS") ?: localProperties.getProperty("RELEASE_KEY_ALIAS")
+            keyPassword = System.getenv("RELEASE_KEY_PASSWORD") ?: localProperties.getProperty("RELEASE_KEY_PASSWORD")
         }
     }
 

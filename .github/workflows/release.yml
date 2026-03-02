@@ -25,17 +25,24 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Decode Keystore
+        run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > app/release.p12
+
       # 編譯正式版 APK (Release Build)
       - name: Build APK
         run: ./gradlew assembleRelease
+        env:
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
 
       - name: Rename APK
-        run: mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/GAcc.apk
+        run: mv app/build/outputs/apk/release/app-release.apk GAcc.apk
 
       - name: Create Release and Upload APK
         uses: softprops/action-gh-release@v2
         with:
           # 會將打好的 APK 檔上傳到 Github Releases
-          files: app/build/outputs/apk/release/GAcc.apk
+          files: GAcc.apk
           name: Release ${{ github.ref_name }}
           generate_release_notes: true
