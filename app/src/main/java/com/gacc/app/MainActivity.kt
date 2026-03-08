@@ -528,21 +528,29 @@ fun SettleScreen(
                         val balanceColor = if (borrowBalance >= 0) Color(0xFF10B981) else Color(0xFFEF4444)
                         Text("NT$ ${String.format("%,d", borrowBalance)}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = balanceColor)
                     }
+                }
 
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(CardBorder))
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        Column {
-                            Text("剩餘結清金額", color = Color(0xFFA0A0B0), fontSize = 13.sp)
-                            Text("(上月未結清 + 本月前 - 代付)", color = Color(0xFFA0A0B0), fontSize = 10.sp)
-                        }
-                        val settleColor = if (settleBalance >= 0) Color(0xFF10B981) else Color(0xFFEF4444)
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                            Text("NT$ ${String.format("%,d", settleBalance)}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = settleColor)
-                            Text("已結清", color = Color(0xFF7C3AED), fontSize = 12.sp, modifier = Modifier.border(1.dp, Color(0xFF7C3AED), RoundedCornerShape(4.dp)).clickable{ showSettleDialog = true }.padding(horizontal=6.dp, vertical=2.dp))
-                        }
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(CardBorder))
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                    Column {
+                        Text("剩餘結清金額", color = Color(0xFFA0A0B0), fontSize = 13.sp)
+                        Text("(上月未結清 + 本月前 - 代付)", color = Color(0xFFA0A0B0), fontSize = 10.sp)
+                        Spacer(modifier = Modifier.height(6.dp))
+                        // 「已結清」按鈕放在標籤下方，避免被右側金額擠壓
+                        Text(
+                            "已結清",
+                            color = Color(0xFF7C3AED),
+                            fontSize = 12.sp,
+                            modifier = Modifier
+                                .border(1.dp, Color(0xFF7C3AED), RoundedCornerShape(4.dp))
+                                .clickable { showSettleDialog = true }
+                                .padding(horizontal = 8.dp, vertical = 3.dp)
+                        )
                     }
+                    val settleColor = if (settleBalance >= 0) Color(0xFF10B981) else Color(0xFFEF4444)
+                    Text("NT$ ${String.format("%,d", settleBalance)}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = settleColor)
                 }
             }
             Spacer(modifier = Modifier.height(12.dp))
@@ -615,7 +623,7 @@ fun SettleScreen(
                 Column {
                     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { settleOption = "month" }) {
                         RadioButton(selected = settleOption == "month", onClick = { settleOption = "month" }, colors = RadioButtonDefaults.colors(selectedColor = Color(0xFF7C3AED)))
-                        Text("整個月 (${year}/${month+1}及以前)", color = Color.White)
+                        Text("整個月 (${year}/${month+1}月及以前)", color = Color.White)
                     }
                     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { settleOption = "custom" }) {
                         RadioButton(selected = settleOption == "custom", onClick = { settleOption = "custom" }, colors = RadioButtonDefaults.colors(selectedColor = Color(0xFF7C3AED)))
